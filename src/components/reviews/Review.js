@@ -22,8 +22,8 @@ class Review extends Component {
     this.setState({
       ...this.state,
       review: {
-        text: e.target.value,
-        restaurantId: this.props.review.restaurantId
+        ...this.state.review,
+        text: e.target.value
       }
     })
   }

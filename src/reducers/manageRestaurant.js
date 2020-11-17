@@ -26,6 +26,7 @@ function reviews(state = [], action) {
             return state.filter(r => r.id !== action.id)
         case "UPDATE_REVIEW":
             let idx = state.findIndex(r => r.id === action.review.id)
+            debugger
             return [...state.slice(0, idx), action.review, ...state.slice(idx+1)]
         default: return state
     }
