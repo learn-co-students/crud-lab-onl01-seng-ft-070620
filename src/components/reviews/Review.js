@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-class Review extends Component {
+export default class Review extends Component {
+  handleDelete = () => {
+    this.props.deleteReview(this.props.id)
+  }
 
   render() {
-    const { review } = this.props;
-
     return (
       <div>
         <li>
-          {review.text}
+          {this.props.review.text}
         </li>
-        <button> X </button>
+        <button onClick={this.handleDelete}> X </button>
       </div>
-    );
+    )
   }
 
-};
-
-export default Review;
+}
