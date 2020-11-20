@@ -1,15 +1,15 @@
-import { expect } from 'chai';
-import React from 'react';
-import { configure, shallow, mount } from 'enzyme';
-import RestaurantInput from '../src/components/restaurants/RestaurantInput'
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import manageRestaurant, { cuidFn } from '../src/reducers/manageRestaurant'
-import App from '../src/App'
-import Restaurant from '../src/components/restaurants/Restaurant'
-import Adapter from 'enzyme-adapter-react-16'
+import { expect } from "chai";
+import React from "react";
+import { configure, shallow, mount } from "enzyme";
+import RestaurantInput from "../src/components/restaurants/RestaurantInput";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import manageRestaurant, { cuidFn } from "../src/reducers/manageRestaurant";
+import App from "../src/App";
+import Restaurant from "../src/components/restaurants/Restaurant";
+import Adapter from "enzyme-adapter-react-16";
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 describe('RestaurantInput', () => {
   it('has an text input field', () => {
@@ -110,9 +110,7 @@ describe('Restaurant Component with Redux', () => {
 
     expect(wrapper.find(Restaurant).props().restaurant).to.exist
 
-
   });
-
 
   it('has a button that dispatches a DELETE_RESTAURANT action with the proper id when clicked', ()=> {
     const store = createStore(manageRestaurant);
@@ -125,7 +123,6 @@ describe('Restaurant Component with Redux', () => {
     deleteButton.simulate('click',  { preventDefault() {} });
 
     expect(store.getState().restaurants.length).to.equal(0);
-
 
   });
 
