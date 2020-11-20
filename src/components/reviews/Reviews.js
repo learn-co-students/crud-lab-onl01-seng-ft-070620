@@ -1,14 +1,31 @@
-import React, { Component } from 'react';
-import Review from './Review';
+import React, { Component } from 'react'
+import Review from './Review'
+import { connect } from 'react-redux'
 
 class Reviews extends Component {
   render() {
+    let associatedReviews = this.props.reviews.filter(r => r.restaurantId === this.props.restaurantId)
+
     return (
       <ul>
-        Reviews
+        {associatedReviews.map(r =>
+          <Review
+            key={r.id}
+            id={r.id}
+            review={r}
+            deleteReview={this.props.deleteReview}
+          />
+        )}
       </ul>
-    );
+    )
   }
-};
+}
 
-export default Reviews;
+const mapStateToProps = state => {
+  return {
+    reviews: state.reviews
+  }
+}
+
+
+export default connect(mapStateToProps)(Reviews)
