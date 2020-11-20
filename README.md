@@ -13,7 +13,7 @@ restaurant having many reviews and reviews belonging to a restaurant. You will
 implement container components to connect each resource to your Redux store.
 
 
-## Instructions
+## Instructions 
 
 #### Restaurants ####
 
