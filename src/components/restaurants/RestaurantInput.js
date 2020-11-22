@@ -26,7 +26,7 @@ class RestaurantInput extends Component {
           </label>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <input type="submit" value="submit"/>
         </div>
       </form>
     );
